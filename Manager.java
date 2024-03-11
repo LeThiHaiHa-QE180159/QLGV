@@ -16,14 +16,14 @@ public class Manager {
     private LecturerDoc lecturerDoc;
 /**
      * init LecturerDoc object and
-     * read list student when init lecturerManager object
+     * read list lecturer when init lecturerManager object
      */   
     public LecturerManager() {
         lecturerDoc = new LecturerDoc();
         lecturerList = lecturerDoc.read();
     }
      /**
-     * add student to lecturerList
+     * add lecturer to lecturerList
      */
     public void add() {
         int id = (lecturerList.size() > 0) ? (lecturerList.size() + 1) : 1;
@@ -32,7 +32,7 @@ public class Manager {
         byte age = inputAge();
         String address = inputAddress();
         String gmail = inputGmail();
-        Lecturer lecturer = new Student(id, name, age, address,gmail);
+        Lecturer lecturer = new Lecturer(id, name, age, address,gmail);
         lecturerList.add(lecturer);
         lecturerDao.write(lecturerList);
     }
@@ -42,9 +42,9 @@ public class Manager {
 
 public void edit(int id) {
     boolean isExisted = false;
-    int size = studentList.size();
+    int size = lecturerList.size();
     for (int i=0; i< size; i++) {
-        if (studentList.get(i).getId()==id){
+        if (lecturerList.get(i).getId()==id){
             isExisted = true;
             lecturerList.get(i).setName(inputName());
             lecturerList.get(i).setAge(inputAge());
