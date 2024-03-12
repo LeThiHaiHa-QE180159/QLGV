@@ -20,8 +20,8 @@ public class Main {
         int lecturerId;
         // TODO code application logic here
         // show menu
-        showMenu();
-        while (true) {
+        do{
+            showMenu();
             choose = scanner.nextLine();
             switch (choose) {
             case "1" -> lecturerManager.add();
@@ -40,12 +40,7 @@ public class Main {
                 }
             default -> System.out.println("invalid! please choose action in below menu:");
             }
-            if (exit) {
-                break;
-            }
-            // show menu
-            showMenu();
-        }
+        }while (!exit);
     }
     /**
      * create menu
